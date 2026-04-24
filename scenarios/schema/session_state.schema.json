@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://meeting-memory-governance.local/session_state.schema.json",
+  "title": "Session State",
+  "type": "object",
+  "required": [
+    "session_id",
+    "participant_id",
+    "condition",
+    "scenario_id",
+    "step",
+    "active_memory",
+    "proposed_updates",
+    "conflict_queue",
+    "task_responses",
+    "event_log"
+  ],
+  "properties": {
+    "session_id": {
+      "type": "string"
+    },
+    "participant_id": {
+      "type": "string"
+    },
+    "condition": {
+      "enum": [
+        "Hidden",
+        "Visible-Readonly",
+        "Visible-Editable"
+      ]
+    },
+    "scenario_id": {
+      "type": "string"
+    },
+    "step": {
+      "type": "string"
+    },
+    "active_memory": {
+      "type": "array"
+    },
+    "proposed_updates": {
+      "type": "array"
+    },
+    "conflict_queue": {
+      "type": "array"
+    },
+    "task_responses": {
+      "type": "array"
+    },
+    "event_log": {
+      "type": "array"
+    }
+  }
+}

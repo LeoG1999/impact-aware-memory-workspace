@@ -1,0 +1,122 @@
+[
+  {
+    "id": "round_1",
+    "label": "Legal delay and unresolved bug",
+    "label_zh": "法务延迟与关键 bug 未解决",
+    "prompt": "Midway through follow-up coordination, legal reports that review will take two extra days, and engineering confirms the critical bug is still unresolved.",
+    "prompt_zh": "在后续协调过程中，法务反馈审核还需要额外两天，工程团队也确认关键 bug 仍未解决。",
+    "updates": [
+      {
+        "id": "upd_owner_announce_fix",
+        "action": "update",
+        "target_memory_id": "mem_owner_announce",
+        "proposed_item": {
+          "id": "mem_owner_announce",
+          "type": "owner",
+          "content": "Marketing lead owns the announcement draft.",
+          "entity_ref": "task_announce",
+          "value": "marketing_lead",
+          "status": "active",
+          "source_ref": ["seg_3"],
+          "confidence": 0.94,
+          "created_by": "system",
+          "updated_by": "system",
+          "updated_at": "2026-04-21T00:00:00.000Z"
+        },
+        "reason": "Transcript evidence shows marketing, not the product manager, owns the announcement draft.",
+        "reason_zh": "根据 transcript，公告草稿应由市场负责人负责，而不是产品经理。",
+        "source_ref": ["seg_3"],
+        "impact_tags": ["ownership", "coordination"]
+      },
+      {
+        "id": "upd_dependency_announce_add",
+        "action": "add",
+        "target_memory_id": null,
+        "proposed_item": {
+          "id": "mem_dependency_announce",
+          "type": "dependency",
+          "content": "Announcement depends on legal approval.",
+          "entity_ref": "task_announce",
+          "depends_on": "legal_approval",
+          "value": "legal_approval",
+          "status": "active",
+          "source_ref": ["seg_3", "seg_4"],
+          "confidence": 0.96,
+          "created_by": "system",
+          "updated_by": "system",
+          "updated_at": "2026-04-21T00:00:00.000Z"
+        },
+        "reason": "The active memory omitted a dependency that affects whether announcement work can proceed to publication.",
+        "reason_zh": "当前记忆遗漏了一个关键依赖：公告能否发布取决于法务审批。",
+        "source_ref": ["seg_3", "seg_4"],
+        "impact_tags": ["dependency", "risk"]
+      },
+      {
+        "id": "upd_constraint_bug_add",
+        "action": "add",
+        "target_memory_id": null,
+        "proposed_item": {
+          "id": "mem_constraint_bug",
+          "type": "constraint",
+          "content": "Launch cannot happen until the critical bug is fully closed.",
+          "entity_ref": "launch",
+          "value": "bug_must_be_closed",
+          "status": "active",
+          "source_ref": ["seg_1"],
+          "confidence": 0.96,
+          "created_by": "system",
+          "updated_by": "system",
+          "updated_at": "2026-04-21T00:00:00.000Z"
+        },
+        "reason": "The active memory omitted the release constraint that blocks launch.",
+        "reason_zh": "当前记忆遗漏了阻止发布的核心约束条件。",
+        "source_ref": ["seg_1"],
+        "impact_tags": ["constraint", "blocking"]
+      },
+      {
+        "id": "upd_open_issue_legal_reopen",
+        "action": "update",
+        "target_memory_id": "mem_open_issue_legal_timing",
+        "proposed_item": {
+          "id": "mem_open_issue_legal_timing",
+          "type": "open_issue",
+          "content": "Legal turnaround is still unresolved and may delay launch by two days.",
+          "entity_ref": "launch",
+          "value": "legal_turnaround_uncertain",
+          "status": "uncertain",
+          "source_ref": ["seg_5"],
+          "confidence": 0.87,
+          "created_by": "system",
+          "updated_by": "system",
+          "updated_at": "2026-04-21T00:00:00.000Z"
+        },
+        "reason": "The earlier active memory treated a still-open question as resolved.",
+        "reason_zh": "之前的记忆把仍然待确认的问题错误地当成了已解决事项。",
+        "source_ref": ["seg_5"],
+        "impact_tags": ["open_issue", "risk"]
+      },
+      {
+        "id": "upd_deadline_launch_shift",
+        "action": "update",
+        "target_memory_id": "mem_deadline_launch",
+        "proposed_item": {
+          "id": "mem_deadline_launch",
+          "type": "deadline",
+          "content": "Launch target should move at least two days later than next Thursday.",
+          "entity_ref": "launch",
+          "value": "next_thursday_plus_2_days",
+          "status": "uncertain",
+          "source_ref": ["seg_1"],
+          "confidence": 0.79,
+          "created_by": "system",
+          "updated_by": "system",
+          "updated_at": "2026-04-21T00:00:00.000Z"
+        },
+        "reason": "Legal delay and unresolved bug imply the previous launch date is no longer reliable.",
+        "reason_zh": "法务延迟和 bug 未解决意味着原定发布日期已经不再可靠。",
+        "source_ref": ["seg_1"],
+        "impact_tags": ["deadline", "replan"]
+      }
+    ]
+  }
+]

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Meeting Memory Governance Prototype</title>
+    <link rel="stylesheet" href="./styles.css?v=20260422d" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <div class="hero-topbar">
+            <div>
+              <p class="eyebrow" data-i18n="hero_eyebrow">CSCW Research Prototype</p>
+              <h1 data-i18n="hero_title">Meeting Memory Governance Lab</h1>
+            </div>
+            <div class="language-switcher" role="group" aria-label="Language switcher">
+              <button type="button" class="lang-btn" data-lang="zh">中文</button>
+              <button type="button" class="lang-btn" data-lang="en">EN</button>
+            </div>
+          </div>
+          <p class="subhead" data-i18n="hero_subhead">
+            A research app for studying how people inspect, repair, and govern AI work memory with a real or controlled responder.
+          </p>
+          <div id="hero-chips" class="hero-chips"></div>
+        </div>
+
+        <form id="session-form" class="session-form">
+          <label>
+            <span data-i18n="participant_id">Participant ID</span>
+            <input id="participant-id" value="demo_participant" />
+          </label>
+          <label>
+            <span data-i18n="scenario">Scenario</span>
+            <select id="scenario-select"></select>
+          </label>
+          <label>
+            <span data-i18n="condition">Condition</span>
+            <select id="condition-select"></select>
+          </label>
+          <div id="setup-preview" class="form-note empty"></div>
+          <button type="submit" data-i18n="create_session">Create Session</button>
+        </form>
+      </header>
+
+      <section class="overview-grid">
+        <section class="panel">
+          <h2 data-i18n="task_brief">What You Will Do</h2>
+          <div id="task-brief" class="stack"></div>
+        </section>
+
+        <section class="panel" id="summary-panel">
+          <h2 data-i18n="session">Session</h2>
+          <div id="session-summary" class="kv-list empty">No session created yet.</div>
+          <div id="context-note" class="context-note empty"></div>
+          <div class="button-row">
+            <button id="apply-conflict-btn" disabled data-i18n="apply_conflict">Apply Conflict</button>
+            <button id="export-json-btn" disabled data-i18n="export_json">Export JSON</button>
+            <button id="export-csv-btn" disabled data-i18n="export_csv">Export CSV</button>
+            <button id="save-export-btn" disabled data-i18n="save_export_files">Save Export Files</button>
+          </div>
+          <p id="export-status" class="status-text"></p>
+        </section>
+
+        <section class="panel">
+          <h2 data-i18n="system_status">System Status</h2>
+          <div id="engine-summary" class="kv-list empty"></div>
+          <div id="next-step-card" class="callout empty"></div>
+        </section>
+      </section>
+
+      <section class="panel workflow-panel">
+        <h2 data-i18n="workflow">Workflow</h2>
+        <div id="workflow-list" class="stack workflow-stack"></div>
+      </section>
+
+      <main class="app-grid">
+        <section class="panel">
+          <h2 data-i18n="transcript">Transcript</h2>
+          <div id="transcript-list" class="stack empty">Create a session to load transcript segments.</div>
+        </section>
+
+        <section class="panel">
+          <h2 data-i18n="active_memory">Active Memory</h2>
+          <form id="add-memory-form" class="memory-form">
+            <h3 data-i18n="add_memory_item">Add Memory Item</h3>
+            <div class="form-grid">
+              <label>
+                <span data-i18n="type">Type</span>
+                <select name="type">
+                  <option value="task" data-i18n="type_task">task</option>
+                  <option value="owner" data-i18n="type_owner">owner</option>
+                  <option value="deadline" data-i18n="type_deadline">deadline</option>
+                  <option value="dependency" data-i18n="type_dependency">dependency</option>
+                  <option value="constraint" data-i18n="type_constraint">constraint</option>
+                  <option value="open_issue" data-i18n="type_open_issue">open_issue</option>
+                </select>
+              </label>
+              <label>
+                <span data-i18n="entity_ref">Entity Ref</span>
+                <input name="entity_ref" />
+              </label>
+              <label>
+                <span data-i18n="value">Value</span>
+                <input name="value" />
+              </label>
+              <label>
+                <span data-i18n="depends_on">Depends On</span>
+                <input name="depends_on" />
+              </label>
+              <label class="full">
+                <span data-i18n="content">Content</span>
+                <input name="content" />
+              </label>
+            </div>
+            <button type="submit" data-i18n="add_memory">Add Memory</button>
+          </form>
+          <div id="memory-list" class="stack empty">Memory visibility depends on condition.</div>
+        </section>
+
+        <section class="panel">
+          <h2 data-i18n="proposed_updates">Proposed Updates</h2>
+          <div id="conflict-banner" class="conflict-banner empty"></div>
+          <div id="updates-list" class="stack empty">No proposed updates.</div>
+        </section>
+
+        <section class="panel">
+          <h2 data-i18n="tasks">Tasks</h2>
+          <div id="tasks-list" class="stack empty">Create a session to run tasks.</div>
+        </section>
+
+        <section class="panel">
+          <h2 data-i18n="outputs">Outputs</h2>
+          <div id="outputs-list" class="stack empty">Task responses will appear here.</div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="./app.js?v=20260422d"></script>
+  </body>
+</html>

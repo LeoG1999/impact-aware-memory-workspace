@@ -1,0 +1,304 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://meeting-memory-governance.local/scenario.schema.json",
+  "title": "Scenario Bundle",
+  "type": "object",
+  "required": [
+    "scenario_id",
+    "title",
+    "domain",
+    "transcript",
+    "gold_memory",
+    "seed_active_memory",
+    "proposed_updates",
+    "conflicts",
+    "tasks",
+    "scoring_rubric"
+  ],
+  "properties": {
+    "scenario_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "domain": {
+      "type": "string"
+    },
+    "transcript": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/transcript_segment"
+      }
+    },
+    "gold_memory": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/memory_item"
+      }
+    },
+    "seed_active_memory": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/memory_item"
+      }
+    },
+    "proposed_updates": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/proposed_update"
+      }
+    },
+    "conflicts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/conflict_round"
+      }
+    },
+    "tasks": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/task_definition"
+      }
+    },
+    "scoring_rubric": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/scoring_rule"
+      }
+    }
+  },
+  "$defs": {
+    "transcript_segment": {
+      "type": "object",
+      "required": [
+        "id",
+        "speaker",
+        "text"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "speaker": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "role_zh": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "text_zh": {
+          "type": "string"
+        }
+      }
+    },
+    "memory_item": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "content",
+        "status",
+        "source_ref",
+        "created_by",
+        "updated_by"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "task",
+            "owner",
+            "deadline",
+            "dependency",
+            "constraint",
+            "open_issue"
+          ]
+        },
+        "content": {
+          "type": "string"
+        },
+        "entity_ref": {
+          "type": "string"
+        },
+        "value": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "depends_on": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "active",
+            "uncertain",
+            "resolved",
+            "removed"
+          ]
+        },
+        "source_ref": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "confidence": {
+          "type": "number"
+        },
+        "created_by": {
+          "type": "string"
+        },
+        "updated_by": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        }
+      }
+    },
+    "proposed_update": {
+      "type": "object",
+      "required": [
+        "id",
+        "action",
+        "proposed_item",
+        "reason",
+        "source_ref"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "action": {
+          "enum": [
+            "add",
+            "update",
+            "remove"
+          ]
+        },
+        "target_memory_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "proposed_item": {
+          "$ref": "#/$defs/memory_item"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "reason_zh": {
+          "type": "string"
+        },
+        "source_ref": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "impact_tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "conflict_round": {
+      "type": "object",
+      "required": [
+        "id",
+        "label",
+        "prompt",
+        "updates"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "label_zh": {
+          "type": "string"
+        },
+        "prompt": {
+          "type": "string"
+        },
+        "prompt_zh": {
+          "type": "string"
+        },
+        "updates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/proposed_update"
+          }
+        }
+      }
+    },
+    "task_definition": {
+      "type": "object",
+      "required": [
+        "id",
+        "kind",
+        "title",
+        "prompt"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "replan",
+            "risk_analysis",
+            "decision_audit"
+          ]
+        },
+        "title": {
+          "type": "string"
+        },
+        "title_zh": {
+          "type": "string"
+        },
+        "prompt": {
+          "type": "string"
+        },
+        "prompt_zh": {
+          "type": "string"
+        }
+      }
+    },
+    "scoring_rule": {
+      "type": "object",
+      "required": [
+        "task_id",
+        "criterion_id",
+        "description"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string"
+        },
+        "criterion_id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

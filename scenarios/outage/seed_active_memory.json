@@ -1,0 +1,67 @@
+[
+  {
+    "id": "mem_task_hotfix",
+    "type": "task",
+    "content": "Implement the hotfix.",
+    "entity_ref": "task_hotfix",
+    "value": "implement_hotfix",
+    "status": "active",
+    "source_ref": ["seg_1", "seg_2"],
+    "confidence": 0.97,
+    "created_by": "system",
+    "updated_by": "system",
+    "updated_at": "2026-04-21T00:00:00.000Z"
+  },
+  {
+    "id": "mem_owner_hotfix",
+    "type": "owner",
+    "content": "QA lead owns the hotfix coordination.",
+    "entity_ref": "task_hotfix",
+    "value": "qa_lead",
+    "status": "active",
+    "source_ref": ["seg_2"],
+    "confidence": 0.45,
+    "created_by": "system",
+    "updated_by": "system",
+    "updated_at": "2026-04-21T00:00:00.000Z"
+  },
+  {
+    "id": "mem_task_qa",
+    "type": "task",
+    "content": "Verify the patch in QA.",
+    "entity_ref": "task_qa",
+    "value": "verify_patch",
+    "status": "active",
+    "source_ref": ["seg_3"],
+    "confidence": 0.95,
+    "created_by": "system",
+    "updated_by": "system",
+    "updated_at": "2026-04-21T00:00:00.000Z"
+  },
+  {
+    "id": "mem_deadline_outage",
+    "type": "deadline",
+    "content": "Close the hotfix verification loop by 8 PM tonight.",
+    "entity_ref": "incident",
+    "value": "tonight_8pm",
+    "status": "active",
+    "source_ref": ["seg_1"],
+    "confidence": 0.82,
+    "created_by": "system",
+    "updated_by": "system",
+    "updated_at": "2026-04-21T00:00:00.000Z"
+  },
+  {
+    "id": "mem_open_issue_compensation",
+    "type": "open_issue",
+    "content": "A compensation notice has already been approved for all users.",
+    "entity_ref": "compensation",
+    "value": "compensation_confirmed",
+    "status": "resolved",
+    "source_ref": ["seg_5"],
+    "confidence": 0.46,
+    "created_by": "system",
+    "updated_by": "system",
+    "updated_at": "2026-04-21T00:00:00.000Z"
+  }
+]

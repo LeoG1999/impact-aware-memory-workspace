@@ -1,0 +1,14 @@
+{
+  "name": "meeting-memory-governance-backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "run:sample": "node src/cli/run-sample-session.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "openai": "^6.34.0"
+  }
+}

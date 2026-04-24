@@ -1,0 +1,42 @@
+[
+  {
+    "id": "seg_1",
+    "speaker": "Prof. Chen",
+    "role": "PI",
+    "role_zh": "课题负责人",
+    "text": "We want to start the pilot in two weeks, but only after ethics approval is in place.",
+    "text_zh": "我们希望两周后启动 pilot，但前提是伦理审批必须先通过。"
+  },
+  {
+    "id": "seg_2",
+    "speaker": "Ava",
+    "role": "Research Assistant",
+    "role_zh": "研究助理",
+    "text": "I will draft the study materials this week.",
+    "text_zh": "我会在本周起草实验材料。"
+  },
+  {
+    "id": "seg_3",
+    "speaker": "Prof. Chen",
+    "role": "PI",
+    "role_zh": "课题负责人",
+    "text": "I will review the materials once the draft is ready.",
+    "text_zh": "等材料初稿完成后，我会进行审核。"
+  },
+  {
+    "id": "seg_4",
+    "speaker": "Jordan",
+    "role": "Lab Manager",
+    "role_zh": "实验室管理员",
+    "text": "We cannot recruit participants before the ethics board approves the protocol.",
+    "text_zh": "在伦理委员会批准方案之前，我们不能开始招募参与者。"
+  },
+  {
+    "id": "seg_5",
+    "speaker": "Ava",
+    "role": "Research Assistant",
+    "role_zh": "研究助理",
+    "text": "Recruitment channel and participant budget are both still undecided.",
+    "text_zh": "招募渠道和参与者预算目前都还没有最终确定。"
+  }
+]

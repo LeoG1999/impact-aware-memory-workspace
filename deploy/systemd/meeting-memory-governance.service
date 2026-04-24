@@ -1,0 +1,21 @@
+[Unit]
+Description=Meeting Memory Governance Research Prototype
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/workspace/research/meeting-memory-governance/prototype/backend
+EnvironmentFile=-/etc/meeting-memory-governance.env
+Environment=HOST=127.0.0.1
+Environment=PORT=3087
+Environment=BASE_PATH=/meeting-memory-governance
+Environment=ACCESS_CODE=MMG-842731
+ExecStart=/usr/bin/npm run start
+Restart=always
+RestartSec=5
+StandardOutput=append:/root/workspace/research/meeting-memory-governance/prototype/backend/server.log
+StandardError=append:/root/workspace/research/meeting-memory-governance/prototype/backend/server-error.log
+
+[Install]
+WantedBy=multi-user.target
