@@ -110,6 +110,7 @@ The intended paper should foreground:
 ## Project Files
 
 - [docs/PROPOSAL_V1.md](/home/ec2-user/workspace/impact-aware-memory-workspace/docs/PROPOSAL_V1.md)
+- [docs/RELATED_WORK_V1.md](/home/ec2-user/workspace/impact-aware-memory-workspace/docs/RELATED_WORK_V1.md)
 - [docs/STUDY_DESIGN_V1.md](/home/ec2-user/workspace/impact-aware-memory-workspace/docs/STUDY_DESIGN_V1.md)
 - [docs/PILOT_PACKS_V1.md](/home/ec2-user/workspace/impact-aware-memory-workspace/docs/PILOT_PACKS_V1.md)
 - [docs/TASK_FRAMEWORK.md](/home/ec2-user/workspace/impact-aware-memory-workspace/docs/TASK_FRAMEWORK.md)
