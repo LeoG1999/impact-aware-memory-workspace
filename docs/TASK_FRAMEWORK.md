@@ -17,6 +17,27 @@ The assistant helps a user choose dining options based on remembered preferences
 
 It stores a compact structured memory and uses it for future recommendations.
 
+## Study Structure
+
+The main study should use a `within-subjects` design with three conditions:
+
+- `Chat-only`
+- `Editable Memory`
+- `Editable Memory + Impact Preview`
+
+Each participant should complete:
+
+- `3 scenario packs` in pilot
+- `6 scenario packs` in the main study
+
+Each scenario pack should contain the same three micro-tasks in sequence:
+
+1. `choose`
+2. `audit`
+3. `revise`
+
+This keeps the interaction flow stable while letting us rotate memory errors across packs.
+
 ## Task Families
 
 ### 1. Choose
@@ -106,6 +127,40 @@ Prefer:
 
 - "This memory item strongly affected the ranking of 2 recent suggestions."
 
+## Scenario Pack Template
+
+Each scenario pack should contain:
+
+1. `true_user_state`
+2. `assistant_memory_state`
+3. `candidate_options`
+4. `assistant_recommendation`
+5. `choose task`
+6. `audit task`
+7. `revise task`
+8. `gold decision and repair targets`
+
+Recommended task flow inside a pack:
+
+### Step 1: Choose
+
+- show the user goal
+- show 3 to 4 restaurant candidates
+- show the assistant's initial recommendation
+- ask the participant to accept the recommendation or choose a better option
+
+### Step 2: Audit
+
+- ask whether the assistant's recommendation is aligned with the user's true needs
+- record confidence and reliance behavior
+
+### Step 3: Revise
+
+- reveal that some remembered state may be wrong, stale, or conflicting
+- allow the participant to inspect and repair memory according to the current condition
+- show the updated recommendation after repair
+- ask for a final decision
+
 ## Scoring Skeleton
 
 Each scenario should support automatic scoring along four axes:
@@ -120,6 +175,23 @@ Suggested reliance signal:
 - accepted a wrong recommendation without inspection
 - rejected a correct recommendation without cause
 - inspected and revised when evidence warranted it
+
+Recommended operationalization:
+
+- `appropriate reliance`: participant accepts a correct recommendation, or rejects a flawed one after inspection or justified skepticism
+- `overreliance`: participant accepts a flawed recommendation without sufficient inspection
+- `under-reliance`: participant rejects a correct recommendation without evidence-based reason
+
+## Participants
+
+Recommended sample sizes:
+
+- `pilot`: 6 to 8 participants
+- `main study`: 30 effective participants
+
+Practical recruitment target:
+
+- recruit 32 to 36 participants for the main study to absorb attrition and unusable sessions
 
 ## Study Condition Mapping
 
@@ -143,7 +215,8 @@ Suggested reliance signal:
 
 ## Build Priority
 
-1. Build 8 to 12 short dining scenarios.
-2. Freeze one shared candidate-option format.
-3. Create deterministic recommendation logic.
-4. Define exactly how impact preview is computed and displayed.
+1. Freeze one shared scenario-pack format.
+2. Build 3 pilot packs, then expand to 6 main-study packs.
+3. Freeze one candidate-option format used across all packs.
+4. Create deterministic recommendation logic.
+5. Define exactly how impact preview is computed and displayed.

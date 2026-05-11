@@ -63,6 +63,7 @@ The immediate goal is not to broaden the system, but to lock a defensible first 
 - finalize a compact memory schema
 - define a small set of controlled memory error types
 - specify exactly what the impact preview reveals
+- lock a `3-condition within-subjects` study with `3 pilot packs` and `6 main-study packs`
 
 ### 2. Build a controlled prototype
 
@@ -84,6 +85,11 @@ We need a small set of tightly controlled scenarios, each with:
 - candidate recommendations
 - gold outcomes for scoring
 
+The current study target is:
+
+- `pilot`: 3 scenario packs, 6 to 8 participants
+- `main study`: 6 scenario packs, 30 effective participants
+
 ### 4. Run pilot before expanding scope
 
 Before building a full study, we should pilot:
@@ -104,6 +110,9 @@ The intended paper should foreground:
 ## Project Files
 
 - [docs/PROPOSAL_V1.md](/home/ec2-user/workspace/impact-aware-memory-workspace/docs/PROPOSAL_V1.md)
+- [docs/STUDY_DESIGN_V1.md](/home/ec2-user/workspace/impact-aware-memory-workspace/docs/STUDY_DESIGN_V1.md)
+- [docs/PILOT_PACKS_V1.md](/home/ec2-user/workspace/impact-aware-memory-workspace/docs/PILOT_PACKS_V1.md)
 - [docs/TASK_FRAMEWORK.md](/home/ec2-user/workspace/impact-aware-memory-workspace/docs/TASK_FRAMEWORK.md)
 - [docs/ROADMAP.md](/home/ec2-user/workspace/impact-aware-memory-workspace/docs/ROADMAP.md)
+- [docs/UI_DIRECTION_CHI_V1.md](/home/ec2-user/workspace/impact-aware-memory-workspace/docs/UI_DIRECTION_CHI_V1.md)
 - [prototype/frontend/index.html](/home/ec2-user/workspace/impact-aware-memory-workspace/prototype/frontend/index.html)

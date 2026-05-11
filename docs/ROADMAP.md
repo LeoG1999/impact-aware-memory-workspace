@@ -6,20 +6,24 @@
 - freeze the first-pass memory schema
 - define the exact impact preview signals
 - decide the study conditions
+- freeze the scenario-pack structure and scoring logic
 
 ## Phase 2: Controlled Prototype
 
 - implement a deterministic dining assistant
+- build a simple participant-facing front-end for the three conditions
 - build the memory workspace UI
 - build the impact preview panel
+- support one full scenario pack end to end
 - log inspections, edits, and decision actions
 
 ## Phase 3: Scenario Pack
 
-- author 8 to 12 short scenarios
+- author 3 pilot scenario packs
 - inject structured memory errors
 - define gold decisions and repair paths
 - pilot scenario difficulty
+- expand to 6 main-study packs after pilot revision
 
 ## Phase 4: Pilot Study
 
@@ -31,6 +35,7 @@
 ## Phase 5: Main Study
 
 - run the three-condition comparison
+- target 30 effective participants
 - analyze repair, reliance, and decision quality
 - code reflection and interview data
 

@@ -10,47 +10,66 @@
     <div class="shell">
       <header class="hero">
         <div>
-          <p class="eyebrow">Concept Prototype</p>
+          <p class="eyebrow">Single-Pack Study Prototype</p>
           <h1>Impact-Aware Memory Workspace</h1>
           <p class="subtitle">
-            A static prototype for inspecting remembered user state, repairing it directly, and seeing how it
-            influences assistant recommendations.
+            This page simulates one full dining-assistant scenario pack with three study conditions and three
+            sequential tasks: choose, audit, and revise.
           </p>
         </div>
         <div class="hero-card">
-          <p class="card-label">Current Study Frame</p>
-          <p class="card-value">Editable Memory + Impact Preview</p>
-          <p class="card-meta">Domain: dining assistant</p>
+          <p class="card-label">Prototype Controls</p>
+          <div id="studyMeta" class="meta-list"></div>
+          <label class="control-label" for="packSelect">Pilot Pack</label>
+          <select id="packSelect" class="control-input"></select>
+          <label class="control-label" for="conditionSelect">Condition</label>
+          <select id="conditionSelect" class="control-input">
+            <option value="chat">Chat-only</option>
+            <option value="editable">Editable Memory</option>
+            <option value="impact">Editable Memory + Impact Preview</option>
+          </select>
+          <div class="button-row">
+            <button id="resetPack" class="primary-button" type="button">Reset Scenario Pack</button>
+            <button id="exportLog" class="secondary-button" type="button">Export Event Log</button>
+          </div>
         </div>
       </header>
 
       <main class="grid">
-        <section class="panel panel-chat">
+        <section class="panel panel-assistant">
           <div class="panel-header">
             <div>
-              <p class="panel-kicker">Assistant View</p>
-              <h2>Recent Recommendation</h2>
+              <p class="panel-kicker">Scenario Pack</p>
+              <h2 id="taskTitle">Choose</h2>
             </div>
-            <span class="status-pill">Relied on 3 memory items</span>
+            <span id="taskBadge" class="status-pill">Step 1 of 3</span>
           </div>
 
-          <div class="chat-card">
-            <p class="request-label">User request</p>
-            <p class="request-text">Find a calm vegetarian dinner spot for tonight within 30 minutes.</p>
+          <div class="brief-card">
+            <p class="card-label">User Brief</p>
+            <h3 id="goalTitle"></h3>
+            <ul id="goalBullets" class="detail-list"></ul>
           </div>
+          <div id="scenarioNote" class="note-card"></div>
 
           <div class="response-card">
-            <p class="response-label">Assistant response</p>
-            <h3>Recommended: Oak Ember Bistro</h3>
-            <ul class="response-list">
-              <li>Quiet atmosphere and table service.</li>
-              <li>Estimated travel time: 22 minutes.</li>
-              <li>Chosen because the remembered budget cap is under $80.</li>
-            </ul>
+            <div class="response-topline">
+              <div>
+                <p class="response-label">Assistant recommendation</p>
+                <h3 id="recommendationName"></h3>
+              </div>
+              <span id="recommendationPill" class="tag tag-active">Initial</span>
+            </div>
+            <p id="recommendationSummary" class="body-copy"></p>
+            <ul id="recommendationReasons" class="detail-list"></ul>
           </div>
 
-          <div class="response-footnote">
-            This recommendation may be misaligned if any remembered constraints are stale or uncertain.
+          <div>
+            <div class="panel-subheader">
+              <p class="panel-kicker">Candidate Options</p>
+              <p class="subtle-copy">Select one card when the current task asks you to choose.</p>
+            </div>
+            <div id="candidateList" class="candidate-list"></div>
           </div>
         </section>
 
@@ -58,25 +77,39 @@
           <div class="panel-header">
             <div>
               <p class="panel-kicker">Memory Workspace</p>
-              <h2>Remembered State</h2>
+              <h2 id="memoryHeading">Remembered State</h2>
             </div>
-            <button id="toggleMode" class="ghost-button" type="button">Switch to Chat-only</button>
+            <span id="memoryModePill" class="status-pill">Visible</span>
           </div>
 
+          <div id="memoryNotice" class="notice-card"></div>
           <div id="memoryList" class="memory-list"></div>
+          <div id="memoryEditor" class="editor-card"></div>
         </section>
 
-        <section class="panel panel-impact">
+        <section class="panel panel-study">
           <div class="panel-header">
             <div>
-              <p class="panel-kicker">Impact Preview</p>
-              <h2 id="impactTitle">Select a memory item</h2>
+              <p class="panel-kicker">Task Workspace</p>
+              <h2 id="instructionTitle">Current Task</h2>
             </div>
           </div>
 
-          <div id="impactPanel" class="impact-empty">
-            Choose a memory item to inspect its certainty, recent usage, and likely downstream effects.
+          <div id="timeline" class="timeline"></div>
+          <div id="instructionCard" class="instruction-card"></div>
+          <div id="actionArea" class="action-stack"></div>
+
+          <div class="panel-subheader impact-subheader">
+            <p class="panel-kicker">Impact Preview</p>
+            <p class="subtle-copy">Visible only in the impact-aware condition.</p>
           </div>
+          <div id="impactPanel" class="impact-empty"></div>
+
+          <div class="panel-subheader">
+            <p class="panel-kicker">Activity Log</p>
+            <p class="subtle-copy">Lightweight feedback for testing the interaction loop.</p>
+          </div>
+          <div id="activityLog" class="log-card"></div>
         </section>
       </main>
     </div>
