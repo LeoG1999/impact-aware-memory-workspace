@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>Memory Impact Study · Single Trial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./study.css" />
+  </head>
+  <body>
+    <div class="study-shell">
+      <header class="study-header">
+        <div class="study-brand">
+          <span class="brand-index">M2</span>
+          <div><strong>Memory Impact Study</strong><span>Single-trial prototype</span></div>
+        </div>
+        <div class="study-meta">
+          <span>Participant P-017</span>
+          <span class="condition-chip">Impact Preview</span>
+          <span id="studyApiStatus" class="api-chip"><i></i>Checking API</span>
+        </div>
+      </header>
+
+      <nav id="studyProgress" class="study-progress" aria-label="Study progress"></nav>
+
+      <section class="scenario-strip">
+        <div>
+          <span class="label">Scenario 03 · Kyoto planning</span>
+          <h1>为你的三天京都旅行审核一份个性化行程</h1>
+        </div>
+        <div class="current-fact">
+          <span class="fact-marker">当前事实</span>
+          <p><strong>这次你独自出行。</strong>预算约 $700，需要素食选择，并希望保持较低步行强度。</p>
+        </div>
+      </section>
+
+      <main class="trial-layout">
+        <aside class="context-column">
+          <section class="context-section">
+            <span class="label">Agent 收到的请求</span>
+            <p class="request-copy">请安排 3 天京都行程，不要太赶，预算约 700 美元，不包含国际机票。</p>
+          </section>
+
+          <section class="context-section profile-section">
+            <div class="section-heading"><span class="label">Persistent memory</span><span id="memoryVisibility">暂不可见</span></div>
+            <div id="studyMemoryList" class="study-memory-list"></div>
+          </section>
+        </aside>
+
+        <section class="itinerary-column">
+          <div class="itinerary-heading">
+            <div><span class="label">DeepSeek agent</span><h2 id="itineraryTitle">行程方案</h2></div>
+            <div id="planViewToggle" class="view-toggle" hidden>
+              <button data-plan-view="base" class="active" type="button">原方案</button>
+              <button data-plan-view="preview" type="button">预演方案</button>
+            </div>
+          </div>
+          <div id="studyPlan" class="study-plan"></div>
+        </section>
+
+        <aside class="task-column">
+          <div class="task-heading">
+            <span id="stepNumber" class="step-number">准备</span>
+            <span id="elapsedTime" class="elapsed-time">00:00</span>
+          </div>
+          <div id="taskSurface" class="task-surface"></div>
+        </aside>
+      </main>
+    </div>
+
+    <div id="studyToast" class="study-toast" role="status" aria-live="polite"></div>
+    <script type="module" src="./study.js"></script>
+  </body>
+</html>
